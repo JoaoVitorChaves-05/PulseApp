@@ -263,6 +263,7 @@ com dependências efetivamente usadas por workspace para detectar pacotes órfã
 |---|---|
 | **Mobile** | React Native 0.81 · Expo SDK 54 · TypeScript · Expo Router (file-based, typed routes) · Reanimated 4 · Animated API · expo-av · expo-haptics · expo-linear-gradient · react-native-calendars · Day.js (pt-BR) · Lucide |
 | **Backend (produção)** | Node.js 20 · Express 5 · TypeScript · MongoDB + Mongoose · JWT · bcrypt · Multer · Nodemailer · Helmet · Zod · CORS |
+| **Backend (domínio)** | Express 5 · Prisma 6 · PostgreSQL · OpenAPI 3 + Swagger UI · express-validator · arquitetura em camadas (router → controller → service → DTO) com hierarquia de exceções e error handler centralizado |
 | **Web (CMS)** | React 19 · Vite 7 · React Router 7 · Axios · Bootstrap 5 |
 | **Monetização** | RevenueCat (`react-native-purchases`) · App Store · Google Play Billing |
 | **Infra & tooling** | Yarn 4 Workspaces · Turborepo · EAS Build/Submit · ESLint 9 · Prettier · Jest · Git Flow com PRs |
@@ -288,6 +289,7 @@ com dependências efetivamente usadas por workspace para detectar pacotes órfã
 │   │   │   │   └── utils/          # avatarAssets · avatarDynamicSizes
 │   │   │   └── assets/             # 300+ peças de avatar, áudios e fontes
 │   │   ├── minimal-api/            # API em produção (Express + MongoDB)
+│   │   ├── api/                    # API de domínio (Express + Prisma + OpenAPI)
 │   │   └── cms-web/                # Painel de conteúdo (React + Vite)
 │   └── packages/                   # config · types · ui · utils
 │
@@ -335,7 +337,14 @@ PORT=3000
 yarn dev:mobile      # Expo Metro Bundler  (a = Android, i = iOS, QR = Expo Go)
 yarn dev:cms         # API de produção (Express + MongoDB) em watch mode
 yarn dev:cms-web     # Painel CMS (Vite)
+yarn dev:api         # API de domínio (Prisma) — Swagger em /api-docs
 yarn format          # Prettier em todo o monorepo
+```
+
+Para a API de domínio, antes do primeiro `dev`:
+
+```bash
+cd apps/api && npx prisma migrate dev && npx prisma generate
 ```
 
 **Build de distribuição** (EAS, perfis `development` / `preview` / `production`):
@@ -422,6 +431,6 @@ exibição de telas e funcionalidades e preservada a confidencialidade de dados 
 <div align="center">
 <br>
 
-**João Vitor Mancio Chaves** · joaovmanciochaves@gmail.com
+**Matheus Cahú** · matheus.cahu@unifesp.br
 
 </div>
