@@ -431,6 +431,6 @@ exibição de telas e funcionalidades e preservada a confidencialidade de dados 
 <div align="center">
 <br>
 
-**Matheus Cahú** · matheus.cahu@unifesp.br
+**João Vitor Mâncio Chaves** · joaovmanciochaves@gmail.com
 
 </div>
